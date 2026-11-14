@@ -15,7 +15,7 @@ print(words.pop())
 print(words)
 
 # common methods - sort
-# use sorted if you want to create a new list
+# use sort if you want to create a new list
 words.sort()
 print(words)
 
@@ -33,6 +33,7 @@ squares = [x**2 for x in nums]
 #
 
 # this is a generator expression; it generates squares of numbers 1 to 5
+# 1, 4, 9, 16 
 squares = (x**2 for x in range(1, 6))
 
 # prints <generator object <genexpr> at 0x778a156d9e50>
