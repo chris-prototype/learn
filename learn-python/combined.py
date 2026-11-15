@@ -13,6 +13,14 @@ print('*************************************************************************
 # provides access to the file system among other things
 import os
 
+# list files in the current directory
+files = os.listdir('.')
+if files:
+    print('In the current directory files[0] is: ' + files[0])
+
+print('io-user')
+print('****************************************************************************************************')
+
 # user input
 user = input('Enter your name: ')
 
@@ -20,10 +28,6 @@ user = input('Enter your name: ')
 word1 = 'Hello '
 print(f"{word1}{user}")
 
-# list files in the current directory
-files = os.listdir('.')
-if files:
-    print('In the current directory files[0] is: ' + files[0])
 print('types')
 print('****************************************************************************************************')
 
@@ -106,7 +110,7 @@ def print_default(greeting = 'Hello'):
   print(greeting)
 print_default()
 
-# special attributes
+# special attributes are enclosed by __
 def special(a = 1, b = 2):
     ''' I am a docstring '''
     # print('__name__:', __name__)
@@ -119,18 +123,18 @@ special()
 simple_lambda = lambda s: s.upper()
 print(simple_lambda('a'))
 
+# function in function
 def function1():
   def f(x): return 2 * x
   print(f(2))
 function1()
 
-# positional arguments must come before keyword arguments
+# a variadic function accepts a variable number of arguments
+# positional arguments (1, 2) must come before keyword arguments {'y':4,'x':3}
 def f(*args, **kwargs):
     print(args)
     print(kwargs)
 
-# (1,2) 
-# {'y':4,'x':3}
 f(1,2, y=4, x=3)
 print('lists')
 print('****************************************************************************************************')
@@ -138,24 +142,24 @@ print('*************************************************************************
 words = ['amelia', 'harper', 'evelyn', 'chris', 'james', 'brian']
 words1 = words[:2]     # index 0 to 1
 words2 = words[2:]     # index 2 to end
-print(words)           # words has not changed
-print(words1)
-print(words2)
+print('original: ', words)           # words has not changed
+print('split element 0 to 1: ', words1)
+print('split element 2 to END: ', words2)
 
 # common methods - append, pop
 words.append('fabio')
-print(words)
-print(words.pop())
-print(words)
+print('append fabio: ', words)
+print('pop fabio: ', words.pop())
+print('back to original', words)
 
-# common methods - sort and sorted
-# use sorted if you want to create a new list
+# common methods - sort
+# use sort if you want to create a new list
 words.sort()
-print(words)
+print('sort original', words)
 
 # common methods - remove
 words.remove('amelia')
-print(words)
+print('removed amelia', words)
 
 # list comprehension - [ <return> for <value> in <Iterable> ]
 nums = [1, 2, 3, 4]
@@ -167,6 +171,7 @@ squares = [x**2 for x in nums]
 #
 
 # this is a generator expression; it generates squares of numbers 1 to 5
+# 1, 4, 9, 16 
 squares = (x**2 for x in range(1, 6))
 
 # prints <generator object <genexpr> at 0x778a156d9e50>
@@ -177,18 +182,19 @@ print(type(squares))
 
 # values are not computed until sum is executed
 # this saves memory as compared to a list comprehension
-print(sum(squares))
+# squares is an iterator object and requires compatability
+print('generator example',sum(squares))
 print('strings')
 print('****************************************************************************************************')
 
 # both functions are equivalent
 upper1 = lambda string1: string1.upper()
 def upper2(string1): return string1.upper()
-print(upper1('A lambda function that makes uppercase strings'))
+print(upper1('I am alambda function that makes uppercase strings'))
 
 # a formatted or f string
 name = 'Joe'
-age = 58
+age = 50
 print(f'My name is {name} and I am {age} years old.')
 
 # common string methods - upper, lower, capitalize
@@ -198,14 +204,14 @@ print(food.lower())
 print(food.capitalize())
 
 # common string methods - split
+# splits a string into a list
 a = 'a, b, c'
 b = a.split();
 
-# ['a', 'b', 'c']
-print(b)
-c = a.replace('a', 'z')
+print(b) # ['a', 'b', 'c']
 
-# z, b, c
+# replace characters in a string
+c = a.replace('a', 'z') # z, b, c
 print(c)
 print('control')
 print('****************************************************************************************************')
@@ -219,8 +225,9 @@ for number in numbers:
 for a in range(4):
   print(a)
 
-# this is a nested list comprehension; equivalent of an embedded for loop
+# this is a nested list comprehension; equivalent of an embedded for loop that creates a list
 # outer loop is - 'for row in matrix'; inner loop is - 'for number in row'
+# prints [0, 1, 2, 3]
 matrix = [[0,1], [2,3]]
 flat_list = [number for row in matrix for number in row]
 print(flat_list)
@@ -245,20 +252,33 @@ print('*************************************************************************
 import math
 import random
 
-# your favorite math method
+# simple math
+print(abs(-5))
+
+# simple math
 print(math.sqrt(2))
 
 # seeding will cause random.uniform to always produce the same value
 random.seed(42)
 print(random.uniform(-1,1))
 
-# sums up an iterable with an optional default value
+# sums up an iterable with an optional default start value
 print(sum([1.5, 2.5], 1))
-print(abs(-5))
+import module
+
+# Access a function or variable inside it
+result = module.add(1, 1)
+print(result)
+
+result = module.subtract(2, 1)
+print(result)
+
+result = module._multiply(2, 2)
+print(result)
 print('objects')
 print('****************************************************************************************************')
 
-# is checks if two names point to the same object in memory
+# 'is' checks if two names point to the same object in memory
 dict1 = {'a': 0}
 dict2 = dict1
 dict3 = {'a': 0}
@@ -271,7 +291,7 @@ print(dict1 is dict3)
 # iterable objects - zip
 #
 
-# zip takes 2 or more iterables and produces a tuple
+# zip takes 2 or more iterables
 a = [1,2]
 b = ['x','y']
 test = zip(a,b)
@@ -313,7 +333,7 @@ Instance = MyClass()
 Instance.method()
 Instance.superMethod()
 Instance._private_method()
-print('classes-self')
+print('classes-add')
 print('****************************************************************************************************')
 
 class Point:
@@ -321,32 +341,31 @@ class Point:
         self.x = x
         self.y = y
 
-    def add(self, other):
+    def __add__(self, other):
         return Point(self.x + other.x, self.y + other.y)
 
-    def __add__(self, other):
+    def add(self, other):
         return Point(self.x + other.x, self.y + other.y)
 
 # each calls the constructor __init__
 p1 = Point(1, 2)
 p2 = Point(3, 4)
 
-# self = p1, other = p2
-p3 = p1.add(p2)
-
-# prints 4 and 6
-print(p3.x, p3.y)  
-
 # uses __add__
 p4 = p1 + p2
 print(p4.x, p4.y)
+
+# self = p1, other = p2, uses add
+p3 = p1.add(p2)
+print(p3.x, p3.y)  
+
 print('hashmap')
 print('****************************************************************************************************')
 
 # create
 map1 = {
-    'name': 'Joe',
-    'age': 58
+    'name': 'Chris',
+    'age': 49
 }
 
 # read - Joe
@@ -361,14 +380,39 @@ print('age' in map1)
 # iterate
 for key, value in map1.items():
     print(key, value)
-print('timing')
-print('****************************************************************************************************')
-
 import time
-start = time.time()
-time.sleep(1)
-end = time.time()
-print('total time:', end - start, 'seconds')
+
+class Timer:
+    def __init__(self, name="default name"):
+        self.name = name
+        self.elapsed = 0.0
+
+    def __enter__(self):
+        print(f"[{self.name}] - enter - started...")
+        self.start = time.perf_counter()
+        return self 
+
+    def __exit__(self, *args):
+        self.elapsed = time.perf_counter() - self.start
+        print(f"[{self.name}] - exit - finished in {self.elapsed:.4f} seconds")
+
+with Timer("specific name") as timer:
+    time.sleep(1)
+    print(f"-> check: {time.perf_counter() - timer.start:.2f}s elapsed")
+
+print(f"total time recorded by object: {timer.elapsed:.4f}s")
+def my_decorator(func):
+  def wrapper():
+      print("--- Before the function runs ---")
+      func()
+      print("--- After the function runs ---")
+  return wrapper
+
+@my_decorator
+def say_hello():
+  print("Hello!")
+
+say_hello()
 print('files')
 print('****************************************************************************************************')
 
@@ -381,6 +425,7 @@ with open(output_file, 'w', encoding='utf-8') as outfile:
                 outfile.write(current_file.read())
 
 print("Done.")
+
 print('numpy-dot')
 print('****************************************************************************************************')
 import numpy as np
@@ -392,6 +437,7 @@ b = np.array([4, 5, 6])
 # Dot product, output is 1*4 + 2*5 + 3*6 = 32
 dot = np.dot(a, b)
 print(dot)
+
 print('numpy-matrix')
 print('****************************************************************************************************')
 
@@ -416,65 +462,10 @@ Second row of A: [4, 5, 6]
 Dot with v: 4*7 + 5*8 + 6*9 = 122
 
 So the result is: [50, 122]
-'''print('pytorch')
+'''
+
 print('****************************************************************************************************')
-
-# this operation takes about 2 seconds
-import torch
-
-# not all systems have accessible GPUs
-# print(torch.cuda.is_available())
-
-# tensors - add vectors: z = tensor([5., 7., 9.])
-x = torch.tensor([1.0, 2.0, 3.0])
-y = torch.tensor([4.0, 5.0, 6.0])
-z = x + y
-print('z =', z)
-
-# z = [5.0, 7.0, 9.0]
-print('z =', z.tolist())
-
-# tensors - zeros, ones, add matrices : # c = [[1.0, 1.0], [1.0, 1.0]]
-a = torch.zeros((2, 2))
-b = torch.ones((2, 2))
-c = a + b
-print('c =', c.tolist())print('pytorch-backward-scalar')
-print('****************************************************************************************************')
-
-import torch
-
-x = torch.tensor(2.0, requires_grad=True)
-y = x**2 + 3*x + 1
-# dy/dx = 2*x + 3
-
-# computes dy/dx and sets .grad for x
-y.backward()
-
-# prints 7.
-print('dy/dx =', x.grad)
-
-# reset x.grad
-x.grad.zero_()
-
-# prints 0.
-print('dy/dx =', x.grad)
-print('pytorch-backward-tensor')
-print('****************************************************************************************************')
-
-import torch
-v = torch.tensor([1.0, 2.0, 3.0], requires_grad=True)
-f = v**2 + 3*v + 1
-# df/dv = 2*v + 3
-
-# outpus is 5 + 11 + 19 = 35 : tensor(35. grad_fn=<SumBackwarr0>)
-f_sum = f.sum()
-print(f_sum)
-
-# output is: tensor([5., 7., 9.])
-f_sum.backward()
-print("df/dv =", v.grad)
-
-print('cirq-hadamard gate')
+print('CIRQ - HADAMARD GATE')
 print('****************************************************************************************************')
 
 import cirq
@@ -500,9 +491,73 @@ result = sim.run(circuit, repetitions=1024)
 
 # one output is Counter({1: 537, 0: 487})
 print(result.histogram(key='q0'))
-# without it, all modules with out an _ are imported
-# only add is imported from below
 
+print('****************************************************************************************************')
+print('PYTORCH')
+print('****************************************************************************************************')
+
+# this operation takes about 2 seconds
+import torch
+
+# not all systems have accessible GPUs
+# print(torch.cuda.is_available())
+
+# tensors - add vectors: z = tensor([5., 7., 9.])
+x = torch.tensor([1.0, 2.0, 3.0])
+y = torch.tensor([4.0, 5.0, 6.0])
+z = x + y
+print('z =', z)
+
+# z = [5.0, 7.0, 9.0]
+print('z =', z.tolist())
+
+# tensors - zeros, ones, add matrices : # c = [[1.0, 1.0], [1.0, 1.0]]
+a = torch.zeros((2, 2))
+b = torch.ones((2, 2))
+c = a + b
+print('c =', c.tolist())
+print('****************************************************************************************************')
+print('PYTORCH - BACKWARD - SCALAR')
+print('****************************************************************************************************')
+
+import torch
+
+x = torch.tensor(2.0, requires_grad=True)
+y = x**2 + 3*x + 1
+# dy/dx = 2*x + 3
+
+# computes dy/dx and sets .grad for x
+y.backward()
+
+# prints 7.
+print('dy/dx =', x.grad)
+
+# reset x.grad
+x.grad.zero_()
+
+# prints 0.
+print('dy/dx =', x.grad)
+
+
+print('****************************************************************************************************')
+print('PYTORCH - BACKWARD - TENSOR')
+print('****************************************************************************************************')
+
+import torch
+v = torch.tensor([1.0, 2.0, 3.0], requires_grad=True)
+f = v**2 + 3*v + 1
+# df/dv = 2*v + 3
+
+# outpus is 5 + 11 + 19 = 35 : tensor(35. grad_fn=<SumBackwarr0>)
+f_sum = f.sum()
+print(f_sum)
+
+# output is: tensor([5., 7., 9.])
+f_sum.backward()
+print("df/dv =", v.grad)
+
+
+# this only effects the wild card import - from module import *
 __all__ = ["add"]
 
 def add(a, b):
@@ -511,5 +566,10 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
-def _helper():
-    return "internal use"
+# using undersocre is only convention but the function is still imported
+def _multiply(a, b):
+    return a * b# dependences
+# install using - pip install -r requirements.txt
+numpy
+cirq
+torch

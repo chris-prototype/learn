@@ -10,3 +10,4 @@ with open(output_file, 'w', encoding='utf-8') as outfile:
                 outfile.write(current_file.read())
 
 print("Done.")
+
