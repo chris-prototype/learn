@@ -4,24 +4,24 @@ print('*************************************************************************
 words = ['amelia', 'harper', 'evelyn', 'chris', 'james', 'brian']
 words1 = words[:2]     # index 0 to 1
 words2 = words[2:]     # index 2 to end
-print(words)           # words has not changed
-print(words1)
-print(words2)
+print('original: ', words)           # words has not changed
+print('split element 0 to 1: ', words1)
+print('split element 2 to END: ', words2)
 
 # common methods - append, pop
 words.append('fabio')
-print(words)
-print(words.pop())
-print(words)
+print('append fabio: ', words)
+print('pop fabio: ', words.pop())
+print('back to original', words)
 
 # common methods - sort
 # use sort if you want to create a new list
 words.sort()
-print(words)
+print('sort original', words)
 
 # common methods - remove
 words.remove('amelia')
-print(words)
+print('removed amelia', words)
 
 # list comprehension - [ <return> for <value> in <Iterable> ]
 nums = [1, 2, 3, 4]
@@ -44,4 +44,5 @@ print(type(squares))
 
 # values are not computed until sum is executed
 # this saves memory as compared to a list comprehension
-print(sum(squares))
+# squares is an iterator object and requires compatability
+print('generator example',sum(squares))

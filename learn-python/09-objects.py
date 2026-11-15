@@ -1,7 +1,7 @@
 print('objects')
 print('****************************************************************************************************')
 
-# is checks if two names point to the same object in memory
+# 'is' checks if two names point to the same object in memory
 dict1 = {'a': 0}
 dict2 = dict1
 dict3 = {'a': 0}

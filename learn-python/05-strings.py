@@ -4,11 +4,11 @@ print('*************************************************************************
 # both functions are equivalent
 upper1 = lambda string1: string1.upper()
 def upper2(string1): return string1.upper()
-print(upper1('A lambda function that makes uppercase strings'))
+print(upper1('I am alambda function that makes uppercase strings'))
 
 # a formatted or f string
 name = 'Joe'
-age = 58
+age = 50
 print(f'My name is {name} and I am {age} years old.')
 
 # common string methods - upper, lower, capitalize
@@ -18,12 +18,12 @@ print(food.lower())
 print(food.capitalize())
 
 # common string methods - split
+# splits a string into a list
 a = 'a, b, c'
 b = a.split();
 
-# ['a', 'b', 'c']
-print(b)
+print(b) # ['a', 'b', 'c']
 
-# z, b, c
-c = a.replace('a', 'z')
+# replace characters in a string
+c = a.replace('a', 'z') # z, b, c
 print(c)
