@@ -5,6 +5,7 @@ print('*************************************************************************
 import cirq
 
 # place a single qbit named 'qbit' on a 1D line at index 0
+# a 1D line represents both physical space and a mental model
 qbit = cirq.LineQubit(0)
 
 # creates a quantum circuit ( a series of quantum operations )
@@ -17,7 +18,7 @@ circuit = cirq.Circuit(
   cirq.measure(qbit, key='q0')
 )
 
-# creates a classical simulator for quantum circuits so we can run the quantum circuit
+# creates a simulator for quantum circuits so we can run the quantum circuit
 sim = cirq.Simulator()
 
 # executes the quantum circuit repetitively and stores the result
