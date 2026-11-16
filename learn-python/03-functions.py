@@ -1,3 +1,4 @@
+print('****************************************************************************************************')
 print('functions')
 print('****************************************************************************************************')
 
@@ -20,9 +21,10 @@ def special(a = 1, b = 2):
     # print(special.__code__)
 special()
 
-# input is s, return is capital s
-simple_lambda = lambda s: s.upper()
-print(simple_lambda('a'))
+# lambda example
+words = ["apple", "pie", "banana", "fig"]
+sorted_words = sorted(words, key=lambda s: len(s))
+print(sorted_words)  # ['pie', 'fig', 'apple', 'banana']
 
 # function in function
 def function1():

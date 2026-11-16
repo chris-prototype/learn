@@ -1,13 +1,12 @@
-
 print('****************************************************************************************************')
 print('PYTORCH')
 print('****************************************************************************************************')
 
-# this operation takes about 2 seconds
+# this import takes a while
 import torch
 
 # not all systems have accessible GPUs
-# print(torch.cuda.is_available())
+print('cuda is available: ', torch.cuda.is_available())
 
 # tensors - add vectors: z = tensor([5., 7., 9.])
 x = torch.tensor([1.0, 2.0, 3.0])

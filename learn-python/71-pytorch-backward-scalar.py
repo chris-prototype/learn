@@ -15,8 +15,10 @@ y.backward()
 print('dy/dx =', x.grad)
 
 # reset x.grad
+# trailing _ is a convention for in place mutations
+# calling y.backward() populates x.grad, so we can ignore ...
+# ty, the real time type checker enabled by replit
 x.grad.zero_()
 
 # prints 0.
 print('dy/dx =', x.grad)
-

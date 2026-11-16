@@ -1,5 +1,4 @@
-# dependences
-# install using - pip install -r requirements.txt
+# python dependencies
 numpy
 cirq
 torch
