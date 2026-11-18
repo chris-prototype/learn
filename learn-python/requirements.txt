@@ -1,4 +1,8 @@
-# python dependencies
+# python dependencies; install using:
+# pip install -r requirements.txt
 numpy
+httpx
+fastapi
+uvicorn
 cirq
 torch
