@@ -3,6 +3,7 @@ print('import')
 print('****************************************************************************************************')
 
 import module
+import orchestrator.state as state
 
 # Access a function or variable inside it
 result = module.add(1, 1)

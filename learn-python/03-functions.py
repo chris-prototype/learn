@@ -33,7 +33,7 @@ def function1():
 function1()
 
 # a variadic function accepts a variable number of arguments
-# positional arguments (1, 2) must come before keyword arguments {'y':4,'x':3}
+# positional arguments (1, 2) must come before keyword arguments {'y':4,'x':3} in the function call
 def f(*args, **kwargs):
     print(args)
     print(kwargs)
