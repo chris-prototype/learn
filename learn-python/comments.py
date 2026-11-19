@@ -1,4 +1,6 @@
 """
+remember to prepend your path so python can find packages
+export PYTHONPATH="/home/runner/workspace/learn-python:$PYTHONPATH"
 
 install using
 pip install -r requirements.txt
