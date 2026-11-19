@@ -1,3 +1,8 @@
+"""
+Demonstrates an asynchronous FastAPI endpoint that fetches an HTTPBin response 
+with HTTPX and serves it with Uvicorn.
+"""
+
 import httpx
 from fastapi import FastAPI
 import uvicorn
