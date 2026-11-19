@@ -1,6 +1,10 @@
 """
+PYTHONPATH is copied into sys.path at startup
+
 remember to prepend your path so python can find packages
 export PYTHONPATH="/home/runner/workspace/learn-python:$PYTHONPATH"
+export PYTHONPATH="/home/runner/workspace:$PYTHONPATH"
+
 
 install using
 pip install -r requirements.txt
