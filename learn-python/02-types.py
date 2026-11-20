@@ -59,11 +59,10 @@ print(type(set1))
 print('Is set an iterable?', isinstance(set1, Iterable))
 
 #
-# type - hints
+# type annotations
 #
 
-# some people might use type hints for static file checking
-# they are not enforced at run time
+# type annotaions - colloquially referred to as type hints
 def add(a: int, b: int) -> int:
     return a + b
 result: int = add(2, 3)
