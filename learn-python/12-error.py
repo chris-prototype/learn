@@ -1,4 +1,5 @@
 '''
+Class hierarchy for errors
 
 BaseException
 ├── SystemExit          (sys.exit())

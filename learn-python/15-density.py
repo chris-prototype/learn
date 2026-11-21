@@ -1,19 +1,18 @@
 """
-Demonstrates an asynchronous FastAPI endpoint that fetches an HTTPBin response 
-with HTTPX and serves it with Uvicorn.
+Demonstrates an asynchronous FastAPI endpoint 
+that fetches an HTTPBin response with HTTPX and serves it with Uvicorn.
 """
 
 import httpx
 from fastapi import FastAPI
 import uvicorn
 
-# app object follows the ASGI standard and can be passed to uvicorn
+# the app object follows the ASGI standard and can be passed to uvicorn
 app = FastAPI()
 
-# registers root as the handler for GET requests to "/"
+# a get request to "/" will call root
 @app.get("/")
 # with async, root is now a coroutine, a function that can pause itself
-# calling root now creates a coroutine object, something has to run it
 async def root():
 
     # this version requires async but a sync version is available as well

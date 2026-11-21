@@ -11,6 +11,6 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
-# using undersocre is only convention but the function is still imported
+# using undersocre to mark private is only convention but the function is still imported
 def _multiply(a, b):
     return a * b
