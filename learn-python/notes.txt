@@ -1,0 +1,7 @@
+i am in thread 1
+from thread 1
+from thread 2
+from thread 1
+from thread 2
+from thread 1
+from thread 2

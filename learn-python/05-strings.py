@@ -23,3 +23,4 @@ print(b) # ['a', 'b', 'c']
 # replace characters in a string
 c = a.replace('a', 'z') # z, b, c
 print(c)
+
