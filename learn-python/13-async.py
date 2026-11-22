@@ -2,7 +2,7 @@ import asyncio
 import httpx
 
 # with async, root is now a coroutine, a function that can pause itself
-# calling root now creates a coroutine object, something has to run it
+# after calling root() a coroutine object is returned from root()
 async def root():
     # await only works inside an async function
     # while sleeping/paused other coroutines can run
@@ -12,6 +12,8 @@ async def root():
 print('waiting ...')
 
 # program will wait for result here
+# the coroutine object requires a runner; in this case asyncio.run() to run it
+# it is now inside of an event loop
 result = asyncio.run(root())
 print(result)
 
