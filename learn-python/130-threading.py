@@ -3,7 +3,7 @@ import threading
 import time
 
 _write_lock = threading.Lock()
-FILE_PATH = Path("notes.txt")
+FILE_PATH = Path("threads.txt")
 
 
 def append_line(line: str) -> None:

@@ -2,12 +2,16 @@ print('*************************************************************************
 print('control')
 print('****************************************************************************************************')
 
-# prints 0, 1, 2, 3
-numbers = [0, 1, 2, 3]
-for number in numbers:
-  print(number)
+fruits = ["apple", "banana", "cherry"]
+for i, fruit in enumerate(fruits):
+    print(i, fruit)
 
-# prints 0, 1, 2, 3
+
+letters = ['a', 'b', 'c']
+for letter in letters:
+  print(letter)
+
+
 for a in range(4):
   print(a)
 
