@@ -5,3 +5,5 @@ uvicorn
 cirq
 torch
 pydantic
+pytest
+
