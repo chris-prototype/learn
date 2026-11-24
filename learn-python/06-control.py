@@ -2,6 +2,8 @@ print('*************************************************************************
 print('control')
 print('****************************************************************************************************')
 
+# use while loops when you don't know when something ends
+
 fruits = ["apple", "banana", "cherry"]
 for i, fruit in enumerate(fruits):
     print(i, fruit)

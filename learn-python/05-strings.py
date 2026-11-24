@@ -2,6 +2,19 @@ print('*************************************************************************
 print('strings')
 print('****************************************************************************************************')
 
+
+# strings can be iterated like lists
+  def is_palindrome(x: int) -> bool:
+    s = str(x)
+    length = len(s)
+  
+    for i in range(length // 2):
+        if s[i] != s[length - 1 - i]:
+            return False
+  
+    return True
+
+
 # a formatted or f string
 name = 'Joe'
 age = 50
