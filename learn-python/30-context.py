@@ -10,16 +10,22 @@ class Timer:
         self.elapsed = 0.0
 
     def __enter__(self):
-        print(f"[{self.name}] - enter - started...")
         self.start = time.perf_counter()
+        print(f"[{self.name} , {self.start}] - __enter__ ")
         return self 
 
     def __exit__(self, *args):
-        self.elapsed = time.perf_counter() - self.start
-        print(f"[{self.name}] - exit - finished in {self.elapsed:.4f} seconds")
+        self.end = time.perf_counter()
+        self.elapsed =  self.end - self.start
+        print(f"[{self.name}, {self.end}] - __exit__ ")
 
-with Timer("specific name") as timer:
+# only functions, classes, and comprehensions create new scope
+# timer is available outside of this block and is an instance of Timer
+# note that with wraps a block of code while @ wraps a function so that it is used every funcion call
+with Timer("I am name") as timer:
+    print(f"-> timer.start: {timer.start}")
     time.sleep(1)
-    print(f"-> check: {time.perf_counter() - timer.start:.2f}s elapsed")
+    print(f"-> timer.start: {timer.start}")
 
-print(f"total time recorded by object: {timer.elapsed:.4f}s")
+
+print(f"timer.end: {timer.end}")
